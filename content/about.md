@@ -12,7 +12,7 @@ While AI is a global phenomenon, our initial focus is on the European landscape,
 
 We operate under a set of public [Editorial Principles](/editorial-principles/) and a transparent [Governance Framework](/governance/). Our project is entirely volunteer-run and does not accept funding, a structure that guarantees our independence.
 
-**## Contact Us**
+**Contact Us**
 
 We welcome feedback, inquiries, and contributions.
 
