@@ -1,32 +1,43 @@
 # --------------------------------------------------
-# CORE HUGO CONFIGURATION
+# CORE SITE CONFIGURATION
 # --------------------------------------------------
 baseURL: "https://stateofalgorithms.org/"
 title: "State of Algorithms"
-copyright: "© State of Algorithms"
-enableInlineShortcodes: true
+copyright: "© State of Algorithms | Feel free to show your support by giving us a [star 🌟 on GitHub](https://github.com/stateofalgorithms/stateofalgorithms.org)."
+languageCode: "en-us"
+languageName: "English"
 enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
 mainsections: ["explainers", "investigations"]
+
 minify:
   disableXML: false
   minifyOutput: true
-languageCode: "en-us"
-languageName: "English"
 
-# --- THIS IS THE FIX ---
+# --------------------------------------------------
+# OUTPUT FORMATS & MEDIA TYPES
+# --------------------------------------------------
+outputs:
+  home: [HTML, RSS, JSON]
+  page: [HTML, TXT, JSON]
+
 outputFormats:
   TXT:
     mediaType: "text/plain"
     baseName: "index"
-# ----------------------
+  JSON:
+    mediaType: "application/json"
+    baseName: "index"
+
+mediaTypes:
+  "text/plain":
+    suffixes: ["txt"]
+  "application/json":
+    suffixes: ["json"]
 
 # --------------------------------------------------
-# MODULE, TAXONOMIES, & MENU
+# MODULES, TAXONOMIES, & MENUS
 # --------------------------------------------------
 module:
   imports:
@@ -42,22 +53,39 @@ menu:
     - identifier: explainers
       name: Explainers
       url: /explainers/
-      weight: 1
+      weight: 10
     - identifier: investigations
       name: Investigations
       url: /investigations/
-      weight: 2
+      weight: 20
     - identifier: about
       name: About
       url: /about/
-      weight: 98
+      weight: 30
     - identifier: search
       name: Search
       url: /search/
-      weight: 99
+      weight: 40
+  footer:
+    - identifier: contributing
+      name: Contributing
+      url: /contributing/
+      weight: 10
+    - identifier: principles
+      name: Editorial Principles
+      url: /editorial-principles/
+      weight: 20
+    - identifier: governance
+      name: Governance
+      url: /governance/
+      weight: 30
+    - identifier: roadmap
+      name: Roadmap
+      url: /roadmap/
+      weight: 40
 
 # --------------------------------------------------
-# MARKDOWN & SYNTAX HIGHLIGHTING
+# MARKDOWN & RELATED POSTS
 # --------------------------------------------------
 markup:
   goldmark:
@@ -65,18 +93,10 @@ markup:
       unsafe: true
   highlight:
     noClasses: false
-    lineNos: false
-
-# --------------------------------------------------
-# OUTPUTS & RELATED CONTENT
-# --------------------------------------------------
-outputs:
-  home: [HTML, RSS, JSON]
-  page: [HTML, TXT, JSON]
 
 related:
   includeNewer: true
-  threshold: 60
+  threshold: 80
   toLower: true
   indices:
     - name: tags
@@ -85,31 +105,30 @@ related:
       weight: 80
 
 # --------------------------------------------------
-# PAPERMOD THEME PARAMS
+# THEME PARAMETERS (PaperMod)
 # --------------------------------------------------
 params:
   env: production
-  description: "Cutting through the AI hype and doom — one post at a time."
-  keywords: [AI, Artificial Intelligence, Machine Learning, Algorithms, LLMs, AI Regulation, AI Safety, Explainers]
   author: "State of Algorithms"
+  description: "Rigorous analysis and data-driven investigations into the AI landscape, with an initial focus on the European Union."
+  keywords: [AI, Artificial Intelligence, Machine Learning, Algorithms, LLMs, AI Regulation, AI Safety, Explainers]
   defaultTheme: auto
-  ShowShareButtons: true
   ShowReadingTime: true
+  ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowToc: true
   images: ["/images/stateofalgorithms.png"]
 
-  homeInfoParams:
-    Title: "Welcome to State of Algorithms"
-    Content: "This blog examines both the hype and the doom narratives around AI — and finds the reality in between."
-
+  # Social Icons
   socialIcons:
     - name: github
-      title: "View Source"
-      url: "https://github.com/stateofalgorithms/stateofalgorithms.org"
+      url: "https://github.com/stateofalgorithms"
+    - name: email
+      url: "mailto:contact@stateofalgorithms.org"
 
+  # Search Configuration
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
